@@ -1,6 +1,7 @@
 package com.example.emploeyee_demo.service;
 
 import com.example.emploeyee_demo.model.Employee;
+import com.example.emploeyee_demo.model.EmployeeRequest;
 import com.example.emploeyee_demo.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,8 @@ public interface EmployeeService {
      List<Employee> getAllEmployee() ;
 
      Employee getEmployeeById(Integer employeeId);
+
+     Employee addNewEmployee(EmployeeRequest employeeRequest);
 }
 
 

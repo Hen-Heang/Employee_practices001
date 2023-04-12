@@ -1,6 +1,7 @@
 package com.example.emploeyee_demo.repository;
 
 import com.example.emploeyee_demo.model.Employee;
+import com.example.emploeyee_demo.model.EmployeeRequest;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -28,4 +29,12 @@ public interface EmployeeRepository {
     
     @ResultMap("employeeMap")
     Employee getEmployeeById( Integer employeeId);
+
+    //add employee data
+    @Select("""
+            Insert INTO employee(name,salary) Values(#{employee.employeeName}, #{employee.salary}) 
+            Returning *
+            """)
+    @ResultMap("employeeMap")
+    Employee addNewEmployee(@Param("employee") EmployeeRequest employeeRequest);
 }

@@ -8,3 +8,6 @@ CREATE TABLE employee(
 
     select *from employee
     where id=1
+
+    Insert INTO employee(name, salary) values ('Sambath',300)
+select *from employee

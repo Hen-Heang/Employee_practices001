@@ -1,11 +1,11 @@
 package com.example.emploeyee_demo.controller;
 
 import com.example.emploeyee_demo.model.Employee;
+import com.example.emploeyee_demo.model.EmployeeRequest;
 import com.example.emploeyee_demo.service.EmployeeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @RequestMapping("/api/")
@@ -27,6 +27,13 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable("id") Integer employeeId){
         Employee employee = employeeService.getEmployeeById(employeeId);
         return employeeService.getEmployeeById(employeeId);
+    }
+
+    //Insert employee
+    @PostMapping("/employee")
+    public Employee addNewEmployee(@RequestBody EmployeeRequest employeeRequest){
+          Employee employee = employeeService.addNewEmployee(employeeRequest);
+        return employee;
     }
     }
 
